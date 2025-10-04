@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { authClient } from '@/lib/auth-client';
 import { Spinner } from '@/components/ui/spinner';
+import { BetterAuthActionButton } from '@/components/auth/BetterAuthActionBtn';
 
 const Home = () => {
   const { data: session, isPending: loading } = authClient.useSession();
@@ -35,14 +36,14 @@ const Home = () => {
               Welcome {session.user.name ?? 'User'}!
             </h1>
             {/* TODO: Add loading states */}
-            <Button
+            <BetterAuthActionButton
               size='lg'
               variant='destructive'
-              className='sm:cursor-pointer'
-              onClick={() => authClient.signOut()}
+              successMessage='Signed out successfully'
+              action={() => authClient.signOut()}
             >
               Sign Out
-            </Button>
+            </BetterAuthActionButton>
           </>
         )}
       </div>
