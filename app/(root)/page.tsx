@@ -31,7 +31,9 @@ const Home = () => {
           </>
         ) : (
           <>
-            <h1 className='text-3xl font-bold'>Welcome {session.user.name}!</h1>
+            <h1 className='text-3xl font-bold'>
+              Welcome {session.user.name ?? 'User'}!
+            </h1>
             {/* TODO: Add loading states */}
             <Button
               size='lg'
